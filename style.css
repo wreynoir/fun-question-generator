@@ -1,0 +1,147 @@
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 10px;
+    background: linear-gradient(to bottom, #e0eafc, #cfdef3); /* Icy background gradient */
+    color: #083358; /* Dark blue color for contrast */
+}
+
+#app {
+    text-align: center;
+    width: 100%;
+    max-width: 600px;
+}
+
+#questionDisplay {
+    margin-bottom: 20px;
+    font-size: 24px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 3px solid rgba(175, 238, 238, 0.5); /* Icy effect */
+    position: relative;
+    overflow: hidden;
+}
+
+.shake {
+    animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+@keyframes shake {
+    10%, 90% {
+      transform: translate3d(-1px, 0, 0);
+    }
+    
+    20%, 80% {
+      transform: translate3d(2px, 0, 0);
+    }
+
+    30%, 50%, 70% {
+      transform: translate3d(-4px, 0, 0);
+    }
+
+    40%, 60% {
+      transform: translate3d(4px, 0, 0);
+    }
+}
+
+button {
+    width: 60%; /* Optimal width for tapping */
+    padding: 15px;
+    font-size: 18px;
+    border: none;
+    background-color: #007bff; /* Cool blue button */
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease, background-color 0.3s; /* Smooth transitions for hover effects */
+}
+
+button:hover {
+    transform: scale(1.05); /* Slightly enlarge the button on hover */
+    background-color: #0056b3; /* Change color on hover */
+}
+
+.snowflake {
+    position: fixed;
+    top: -10vh;
+    z-index: 1000;
+    color: white;
+    user-select: none;
+    font-size: 2em;
+    pointer-events: none;
+}
+
+@keyframes fall {
+    0% { top: -10vh; }
+    100% { top: 110vh; }
+}
+
+@keyframes sway {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(20px); }
+}
+
+/* Apply the animation to all snowflakes */
+.snowflake {
+    animation: fall 10s linear infinite, sway 5s ease-in-out infinite;
+}
+
+/* Individual animation timing for each snowflake */
+.snowflake:nth-child(1) {
+    left: 10%;
+    animation-delay: 0s, 0s;
+}
+
+.snowflake:nth-child(2) {
+    left: 50%;
+    animation-delay: 3s, 2s;
+}
+
+.snowflake:nth-child(3) {
+    left: 80%;
+    animation-delay: 5s, 3s;
+}
+
+.snowflake {
+    position: fixed;
+    top: -10px;
+    color: #ffffff;
+    opacity: 0.8;
+    font-size: 1em;
+    pointer-events: none;
+}
+
+#snowflakesContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    pointer-events: none; /* Prevents mouse events on the snowflakes */
+    z-index: 1; /* Behind the main content */
+}
+
+#app {
+    position: relative;
+    z-index: 2; /* Ensures the app content is above the snowflakes */
+    text-align: center;
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    padding-top: 10vh; /* Adjust based on desired spacing */
+    padding-bottom: 10vh; /* Adjust based on desired spacing */
+}
+
+/* Add more as needed, adjusting the 'left' and 'animation-delay' values */
+
